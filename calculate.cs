@@ -30,6 +30,7 @@ namespace WpfApp2
             InitializeComponent();
         }
         
+        //The func is randomizing the number for the num1 and num2
         private bool GetNum(int i)
         {
             bool flag = true;
@@ -51,6 +52,7 @@ namespace WpfApp2
             return flag;
         }
 
+        //The func is calc all the func that the app have
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton radio = sender as RadioButton;
@@ -121,18 +123,22 @@ namespace WpfApp2
             }
         }
 
+        //The func is reseting the button that was clicked
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
             if(radio != null)
                 radio.IsChecked = false;
         }
 
+        //The func is checking if the button finish was clicked
         private void ButtonWasClicked(object sender, RoutedEventArgs e)
         {
             buttonWasClicked1 = true;
             AnswerClick(sender, e);
         }
 
+        //The func is counting all the worng and right answers
+        //and then when all the func was clicked it shows the precentage of right answers
         private void AnswerClick(object sender, RoutedEventArgs e)
         {
             double result = double.Parse(this.result.Text);
