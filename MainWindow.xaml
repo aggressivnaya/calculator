@@ -44,12 +44,30 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="b1" Grid.Column="0" Content="Sum" FontSize="50" Margin="30" Click="B1" Foreground="#BE95C4" Background="#5E548E" BorderThickness="3" BorderBrush="#231942" FontFamily="Broadway"/>
-                <Button x:Name="b2" Grid.Column="1" Content="Sub" FontSize="50" Margin="30" Click="b2_Click" Foreground="#BE95C4" Background="#5E548E" BorderThickness="3" BorderBrush="#231942" FontFamily="Broadway"/>
-                <Button x:Name="b3" Grid.Column="2" Content="Mul" FontSize="50" Margin="30" Click="b3_Click" Foreground="#BE95C4" Background="#5E548E" BorderThickness="3" BorderBrush="#231942" FontFamily="Broadway"/>
-                <Button x:Name="b4" Grid.Column="3" Content="Div" FontSize="50" Margin="30" Click="b4_Click" Foreground="#BE95C4" Background="#5E548E" BorderThickness="3" BorderBrush="#231942" FontFamily="Broadway"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <RadioButton Grid.Column="0" Grid.Row="0" Content="Add" Tag="1" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="1" Grid.Row="0" Content="Mult" Tag="2" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="2" Grid.Row="0" Content="Sub" Tag="3" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="3" Grid.Row="0" Content="Div" Tag="4" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="4" Grid.Row="0" Content="Divint" Tag="5" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="5" Grid.Row="0" Content="Mod" Tag="6" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="6" Grid.Row="0" Content="Avg" Tag="7" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="0" Grid.Row="1" Content="Max" Tag="8" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="1" Grid.Row="1" Content="Min" Tag="9" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="2" Grid.Row="1" Content="Abs" Tag="10" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="3" Grid.Row="1" Content="Pow" Tag="11" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="4" Grid.Row="1" Content="Sqrt" Tag="12" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="5" Grid.Row="1" Content="Sin" Tag="13" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+                <RadioButton Grid.Column="6" Grid.Row="1" Content="Cos" Tag="14" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
             </Grid>
         </Border>
     </Grid>

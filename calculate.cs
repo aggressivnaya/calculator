@@ -20,6 +20,7 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+        RadioButton radio;
         int n1;
         int n2;
 
@@ -93,7 +94,7 @@ namespace WpfApp2
             }
         }
 
-        private void B1(object sender, RoutedEventArgs e)
+        /*private void B1(object sender, RoutedEventArgs e)
         {
             this.output.Text = GetNum() ? ((double)n1 + n2).ToString() : " ";
         }
@@ -122,6 +123,80 @@ namespace WpfApp2
                 this.textbox2.BorderThickness = new Thickness(5);
             }
 
+        }*/
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton radio = sender as RadioButton;
+            int option = int.Parse(radio.Tag.ToString());
+            var converter = new System.Windows.Media.BrushConverter();
+            var brush = (Brush)converter.ConvertFromString("#ff0000");
+
+            switch (option)
+            {
+                case 1:
+                    this.output.Text = GetNum() ? ((double)n1 + n2).ToString() : " ";
+                    break;
+                case 2:
+                    this.output.Text = GetNum() ? ((double)n1 * n2).ToString() : " ";
+                    break;
+                case 3:
+                    this.output.Text = GetNum() ? ((double)n1 - n2).ToString() : " ";
+                    break;
+                case 4:
+                    GetNum();
+                    if (n2 != 0)
+                        this.output.Text = ((double)n1 / n2).ToString();
+                    else
+                    {
+                        _ = MessageBox.Show("You can't divide by zero...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                        this.textbox2.BorderBrush = brush;
+                        this.textbox2.BorderThickness = new Thickness(5);
+                    }
+                    break;
+                case 5:
+                    GetNum();
+                    if (n2 != 0)
+                        this.output.Text = (n1 / n2).ToString();
+                    else
+                    {
+                        _ = MessageBox.Show("You can't divide by zero...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                        this.textbox2.BorderBrush = brush;
+                        this.textbox2.BorderThickness = new Thickness(5);
+                    }
+                    break;
+                case 6:
+                    this.output.Text = GetNum() ? ((double)n1 % n2).ToString() : " ";
+                    break;
+                case 7:
+                    this.output.Text = GetNum() ? (((double)n1 + n2) / 2).ToString() : " ";
+                    break;
+                case 8:
+                    this.output.Text = GetNum() ? (Math.Max(n1,n2)).ToString() : " ";
+                    break;
+                case 9:
+                    this.output.Text = GetNum() ? (Math.Min(n1, n2)).ToString() : " ";
+                    break;
+                case 10:
+                    this.output.Text = GetNum() ? "Num1: " + Math.Abs(n1).ToString() + ", Num2: " + (Math.Abs(n2)).ToString() : " ";
+                    break;
+                case 11:
+                    this.output.Text = GetNum() ? (Math.Pow(n1, n2)).ToString() : " ";
+                    break;
+                case 12:
+                    this.output.Text = GetNum() ? "Num1: " + (Math.Sqrt(n1)).ToString() + ", Num2: " + (Math.Sqrt(n2)).ToString() : " ";
+                    break;
+                case 13:
+                    this.output.Text = GetNum() ? "Num1: " + (Math.Sin(n1)).ToString() + ", Num2: " + (Math.Sin(n2)).ToString() : " ";
+                    break;
+                case 14:
+                    this.output.Text = GetNum() ? "Num1: " + (Math.Cos(n1)).ToString() + ", Num2: " + (Math.Cos(n2)).ToString() : " ";
+                    break;
+            }
+        }
+        private void ResetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(radio != null)
+                radio.IsChecked = false;
         }
     }
 }
