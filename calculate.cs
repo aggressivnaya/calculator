@@ -94,36 +94,6 @@ namespace WpfApp2
             }
         }
 
-        /*private void B1(object sender, RoutedEventArgs e)
-        {
-            this.output.Text = GetNum() ? ((double)n1 + n2).ToString() : " ";
-        }
-
-        private void b2_Click(object sender, RoutedEventArgs e)
-        {
-            this.output.Text = GetNum() ? ((double)n1 - n2).ToString() : " ";
-        }
-
-        private void b3_Click(object sender, RoutedEventArgs e)
-        {
-            this.output.Text = GetNum() ? ((double)n1 * n2).ToString() : " ";
-        }
-
-        private void b4_Click(object sender, RoutedEventArgs e)
-        {
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush = (Brush)converter.ConvertFromString("#ff0000");
-            GetNum();
-            if (n2 != 0)
-                this.output.Text = ((double)n1 / n2).ToString();
-            else
-            {
-                _ = MessageBox.Show("You can't divide by zero...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
-                this.textbox2.BorderBrush = brush;
-                this.textbox2.BorderThickness = new Thickness(5);
-            }
-
-        }*/
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton radio = sender as RadioButton;
