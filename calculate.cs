@@ -15,83 +15,40 @@ using System.Windows.Shapes;
 
 namespace WpfApp2
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         RadioButton radio;
+        Random rnd = new Random();
         int n1;
         int n2;
+        int ok = 0;
+        int fail = 0;
+        bool buttonWasClicked1 = false;
 
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private bool GetNum()
+        
+        private bool GetNum(int i)
         {
             bool flag = true;
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush = (Brush)converter.ConvertFromString("#ff0000");
-            var brush1 = (Brush)converter.ConvertFromString("#C5C6D0");
-            try
-            {
-                this.n1 = int.Parse(textbox1.Text);
-                this.textbox1.BorderThickness = new Thickness(1);
-                this.textbox1.ToolTip = null;
-                this.textbox1.BorderBrush = brush1;
+            n1 = rnd.Next(0, 100);
+            n2 = rnd.Next(0, 100);
+            this.textbox1.Text = n1.ToString();
+            this.textbox2.Text = n2.ToString();
+             if (i == 1) 
+            { 
+                this.textbox1.Text = n1.ToString();
+                this.textbox2.Text = "None";
             }
-            catch(Exception)
+             else 
             {
-                _ = MessageBox.Show("Sorry one of the inputs isn't number...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
-                this.textbox1.BorderThickness = new Thickness(5);
-                this.textbox1.BorderBrush = brush;
-                this.textbox1.ToolTip = "You need to enter numbers!!!";
-                return !flag;
+                this.textbox1.Text = n1.ToString();
+                this.textbox2.Text = n2.ToString();
             }
 
-            try
-            {
-                this.n2 = int.Parse(textbox2.Text);
-                this.textbox2.BorderThickness = new Thickness(1);
-                this.textbox2.ToolTip = null;
-                this.textbox2.BorderBrush = brush1;
-            }
-            catch (Exception)
-            {
-                _ = MessageBox.Show("Sorry one of the inputs isn't number...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
-                this.textbox2.BorderThickness = new Thickness(5);
-                this.textbox2.BorderBrush = brush;
-                this.textbox2.ToolTip = "You need to enter numbers!!!";
-                return !flag;
-            }
             return flag;
-        }
-        private void txtBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            Border border = textBox.Parent as Border;
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush1 = (Brush)converter.ConvertFromString("#C5C6D0");
-
-            try
-            {
-                if (textBox.Name == "textbox1")
-                    n1 = int.Parse(textBox.Text);
-                else
-                    n2 = int.Parse(textBox.Text);
-
-                this.textbox1.BorderThickness = new Thickness(1);
-                this.textbox2.BorderThickness = new Thickness(1);
-                this.textbox1.BorderBrush = brush1;
-                this.textbox2.BorderBrush = brush1;
-            }
-            catch (Exception)
-            {
-                border.BorderThickness = new Thickness(2);
-                border.ToolTip = "Enter numbers";
-            }
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -104,18 +61,18 @@ namespace WpfApp2
             switch (option)
             {
                 case 1:
-                    this.output.Text = GetNum() ? ((double)n1 + n2).ToString() : " ";
+                    this.result.Text = GetNum(2) ? ((double)n1 + n2).ToString() : " ";
                     break;
                 case 2:
-                    this.output.Text = GetNum() ? ((double)n1 * n2).ToString() : " ";
+                    this.result.Text = GetNum(2) ? ((double)n1 * n2).ToString() : " ";
                     break;
                 case 3:
-                    this.output.Text = GetNum() ? ((double)n1 - n2).ToString() : " ";
+                    this.result.Text = GetNum(2) ? ((double)n1 - n2).ToString() : " ";
                     break;
                 case 4:
-                    GetNum();
+                    GetNum(2);
                     if (n2 != 0)
-                        this.output.Text = ((double)n1 / n2).ToString();
+                        this.result.Text = ((double)n1 / n2).ToString();
                     else
                     {
                         _ = MessageBox.Show("You can't divide by zero...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
@@ -124,9 +81,9 @@ namespace WpfApp2
                     }
                     break;
                 case 5:
-                    GetNum();
+                    GetNum(2);
                     if (n2 != 0)
-                        this.output.Text = (n1 / n2).ToString();
+                        this.result.Text = (n1 / n2).ToString();
                     else
                     {
                         _ = MessageBox.Show("You can't divide by zero...", "Error", MessageBoxButton.OKCancel, MessageBoxImage.Error);
@@ -135,38 +92,61 @@ namespace WpfApp2
                     }
                     break;
                 case 6:
-                    this.output.Text = GetNum() ? ((double)n1 % n2).ToString() : " ";
+                    this.result.Text = GetNum(2) ? ((double)n1 % n2).ToString() : " ";
                     break;
                 case 7:
-                    this.output.Text = GetNum() ? (((double)n1 + n2) / 2).ToString() : " ";
+                    this.result.Text = GetNum(2) ? (((double)n1 + n2) / 2).ToString() : " ";
                     break;
                 case 8:
-                    this.output.Text = GetNum() ? (Math.Max(n1,n2)).ToString() : " ";
+                    this.result.Text = GetNum(2) ? (Math.Max(n1,n2)).ToString() : " ";
                     break;
                 case 9:
-                    this.output.Text = GetNum() ? (Math.Min(n1, n2)).ToString() : " ";
+                    this.result.Text = GetNum(2) ? (Math.Min(n1, n2)).ToString() : " ";
                     break;
                 case 10:
-                    this.output.Text = GetNum() ? "Num1: " + Math.Abs(n1).ToString() + ", Num2: " + (Math.Abs(n2)).ToString() : " ";
+                    this.result.Text = GetNum(1) ? Math.Abs(n1).ToString() : " ";
                     break;
                 case 11:
-                    this.output.Text = GetNum() ? (Math.Pow(n1, n2)).ToString() : " ";
+                    this.result.Text = GetNum(2) ? (Math.Pow(n1, n2)).ToString() : " ";
                     break;
                 case 12:
-                    this.output.Text = GetNum() ? "Num1: " + (Math.Sqrt(n1)).ToString() + ", Num2: " + (Math.Sqrt(n2)).ToString() : " ";
+                    this.result.Text = GetNum(1) ? Math.Sqrt(n1).ToString() : " ";
                     break;
                 case 13:
-                    this.output.Text = GetNum() ? "Num1: " + (Math.Sin(n1)).ToString() + ", Num2: " + (Math.Sin(n2)).ToString() : " ";
+                    this.result.Text = GetNum(1) ? Math.Sin(n1).ToString() : " ";
                     break;
                 case 14:
-                    this.output.Text = GetNum() ? "Num1: " + (Math.Cos(n1)).ToString() + ", Num2: " + (Math.Cos(n2)).ToString() : " ";
+                    this.result.Text = GetNum(1) ? Math.Cos(n1).ToString() : " ";
                     break;
             }
         }
+
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
             if(radio != null)
                 radio.IsChecked = false;
+        }
+
+        private void ButtonWasClicked(object sender, RoutedEventArgs e)
+        {
+            buttonWasClicked1 = true;
+            AnswerClick(sender, e);
+        }
+
+        private void AnswerClick(object sender, RoutedEventArgs e)
+        {
+            double result = double.Parse(this.result.Text);
+            double answer = double.Parse(this.answer.Text);
+
+            if (result == answer) { ok++; }
+            else { fail++; }
+
+            if (buttonWasClicked1 && ok + fail == 14)
+            {
+                double grade = ok / (double)(ok + fail);
+                int gradePer = (int)Math.Round(grade * 100);
+                _ = MessageBox.Show($"The precentage of the write answers: {gradePer}", "Finished Precentage", MessageBoxButton.OKCancel , MessageBoxImage.Exclamation);
+            }
         }
     }
 }

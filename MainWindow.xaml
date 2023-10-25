@@ -14,7 +14,11 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0">
-            <TextBox x:Name="output" Margin="20" TextAlignment="Center" FontSize="18" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E"  FontFamily="Broadway" IsReadOnly="True"/>
+            <TextBox x:Name="answer" Margin="20" TextAlignment="Center" FontSize="18" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E"  FontFamily="Broadway" IsReadOnly="False"/>
+        </Border>
+
+        <Border Grid.Row="0">
+            <TextBox x:Name="result" Margin="20" TextAlignment="Center" FontSize="18" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E"  FontFamily="Broadway" IsReadOnly="True" Visibility="Hidden"/>
         </Border>
 
         <Border Grid.Row="1">
@@ -32,14 +36,15 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Num1" Margin="10" FontSize="40" TextAlignment="Center" TextDecorations="Underline" Foreground="#231942" FontFamily="Broadway"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Num2" Margin="10" FontSize="40" TextAlignment="Center" TextDecorations="Underline" Foreground="#231942" FontFamily="Broadway"/>
 
-                <TextBox x:Name="textbox1" LostFocus="txtBox_LostFocus" Grid.Row="0" Grid.Column="1" Margin="30,10" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E" FontFamily="Broadway"/>
-                <TextBox x:Name="textbox2" LostFocus="txtBox_LostFocus" Grid.Row="1" Grid.Column="1" Margin="30,10" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E" FontFamily="Broadway"/>
+                <TextBox x:Name="textbox1" Grid.Row="0" Grid.Column="1" Margin="30,10" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E" FontFamily="Broadway" IsReadOnly="True"/>
+                <TextBox x:Name="textbox2" Grid.Row="1" Grid.Column="1" Margin="30,10" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#231942" Background="#E0B1CB" BorderThickness="3" BorderBrush="#5E548E" FontFamily="Broadway" IsReadOnly="True"/>
             </Grid>
         </Border>
 
         <Border Grid.Row="2">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -68,6 +73,8 @@
                 <RadioButton Grid.Column="4" Grid.Row="1" Content="Sqrt" Tag="12" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
                 <RadioButton Grid.Column="5" Grid.Row="1" Content="Sin" Tag="13" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
                 <RadioButton Grid.Column="6" Grid.Row="1" Content="Cos" Tag="14" Margin="7" FontSize="24" Foreground="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+
+                <Button x:Name="ans" Click="ButtonWasClicked" Grid.Column="7" Grid.Row="0" Content="finish" Margin="7" FontSize="24" Foreground="#BE95C4" Background="#5E548E" BorderThickness="3" BorderBrush="#231942" FontFamily="Broadway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             </Grid>
         </Border>
     </Grid>
